@@ -1,0 +1,80 @@
+import java.util.Scanner;
+public class AtmInterface
+{
+   public static void main(String []args)
+   {
+    Scanner scanner = new Scanner(System.in);
+    int Balance = 100000;
+    int Withdraw,Deposit,choice,pin=8798,ac_num,rac_num;
+    while(true)
+    {
+        System.out.println("Welcome ! This is a virtual ATM Machine");
+        System.out.println("Please make a choice to continue further");
+        System.out.println(" ");
+
+        System.out.println("Choice 1: Withdraw ");
+
+        System.out.println("choice 2: Deposit ");
+
+        System.out.println("Choice 3: Balance ");
+
+        System.out.println("Choice 4: Exit ");
+
+        System.out.println("Enter the choice: ");
+        choice = scanner.nextInt();
+
+            switch(choice)
+            {
+                case 1:
+                System.out.println("Enter the 4 digit pin:");
+                pin = scanner.nextInt();
+                if(pin == 8798)
+                {
+                    System.out.println("Enter the amount you want to withdraw:");
+                    Withdraw = scanner.nextInt();
+                    if(Balance >= Withdraw)
+                    {
+                        Balance -= Withdraw;
+                        System.out.println("please collect your money");
+                        System.out.println("Your remaining balance is "+Balance+"");
+                    }
+                    else
+                    {
+                        System.out.println("Inufficient Balance");
+                    }
+
+                }
+                else
+                {
+                    System.out.println("You had entered wrong pin");
+                }
+                break;
+                case 2:
+                System.out.println("Enter the Account number(of 8 number):");
+                ac_num = scanner.nextInt();
+                System.out.println("Please Re enter the Account number:");
+                rac_num = scanner.nextInt();
+                if(ac_num == rac_num)
+                {
+                    System.out.println("Enter the amount you want to deposit");
+                    Deposit = scanner.nextInt();
+                    Balance = Balance + Deposit;
+                    System.out.println("Your amount is deposited into your account sucessfully");
+                }
+               else
+                {
+                    System.out.println("Your account no. does not mached. Try Again");
+                }
+               break;
+               case 3:
+               System.out.println("Your Account Balance is "+Balance+"");
+               break;
+            
+               case 4:
+               System.exit(0);
+               
+            }
+
+    }
+   } 
+}
